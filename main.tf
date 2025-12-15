@@ -21,10 +21,16 @@ variable "worker_pool_private_key" {
     sensitive = true 
     }
 
+variable "worker_pool_id" { 
+    type = string 
+    sensitive = true 
+    }
+
+
 module "spacelift_workerpool" {
   source = "github.com/spacelift-io/terraform-aws-spacelift-workerpool-on-ec2?ref=v5.4.2"
 
-  worker_pool_id = "01KCHHA36F6QTP9XJWBJ07C9R9"  # From Spacelift UI (e.g., "01JXXXXXX")
+  worker_pool_id = var.worker_pool_id  # From Spacelift UI (e.g., "01JXXXXXX")
 
   secure_env_vars = { 
     SPACELIFT_TOKEN = var.worker_pool_config 
