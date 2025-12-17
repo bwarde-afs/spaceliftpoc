@@ -45,7 +45,7 @@ module "spacelift_workerpool" {
   security_groups = ["sg-04755e0e47b790a31"]       # SG with outbound 443 allowed
 
   # Sizing
-  ec2_instance_type = "t3.small"
+  ec2_instance_type = "t2.xlarge"
   min_size          = 2
   max_size          = 2
 }
